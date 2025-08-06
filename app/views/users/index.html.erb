@@ -12,11 +12,11 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<h1>Books</h1>
-<% @post_books.each do |post_book| %>
+<h1>Users</h1>
+<% @users.each do |user| %>
   <div>
-    <p><%= image_tag 'gazou-mu.jpg' %></p>
-    <p><%= link_to "Title:#{post_book.title}", post_book_path(post_book.id) %></p>
-    <p><%= "Opinion:#{post_book.opinion}" %></p>
+    <p><%= image_tag user.get_profile_image(100,100) %></p>
+    <p><%= user.name %></p>
+    <p><%= link_to "Show", user_path(user.id) %></p>
   </div>
 <% end %>

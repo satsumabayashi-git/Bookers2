@@ -1,7 +1,7 @@
 <h1>User Info</h1>
-<%= image_tag current_user.get_profile_image(100,100) %>
-<%= current_user.id %>
-<h3><%= current_user.name %></h3>
+<%= image_tag @user.get_profile_image(100,100) %>
+<%= @user.id %>
+<h3><%= @user.name %></h3>
 
 <h1>New Book</h1>
 <%= form_with model: @post_book_new do |f| %>
@@ -12,10 +12,10 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<h1>Books</h1>
+<h1>User</h1>
 <% @post_books.each do |post_book| %>
   <div>
-    <p><%= image_tag 'gazou-mu.jpg' %></p>
+    <p><%= image_tag @user.get_profile_image(100,100) %></p>
     <p><%= link_to "Title:#{post_book.title}", post_book_path(post_book.id) %></p>
     <p><%= "Opinion:#{post_book.opinion}" %></p>
   </div>
