@@ -1,7 +1,8 @@
-<h1>Books</h1>
+<h1>User Info</h1>
+<%= current_user.id %>
 
 <h1>New Book</h1>
-<%= form_with model: @post_book do |f| %>
+<%= form_with model: @post_book_new do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>Opinion</h4>
@@ -9,3 +10,11 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
+<h1>Books</h1>
+<% @post_books.each do |post_book| %>
+  <div>
+    <p><%= image_tag 'gazou-mu.jpg' %></p>
+    <p><%= link_to "Title:#{post_book.title}", post_book_path(post_book.id) %></p>
+    <p><%= "Opinion:#{post_book.opinion}" %></p>
+  </div>
+<% end %>
