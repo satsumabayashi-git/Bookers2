@@ -6,6 +6,7 @@ class PostBooksController < ApplicationController
   end
 
   def show
+    @user = PostBook.find(params[:id]).user
     @post_book_new = PostBook.new
     @post_book = PostBook.find(params[:id])
   end
