@@ -11,6 +11,16 @@ class PostBooksController < ApplicationController
     @post_book = PostBook.find(params[:id])
   end
 
+  def edit
+    @post_book = PostBook.find(params[:id])
+  end
+
+  def update
+    @post_book = PostBook.find(params[:id])
+    @post_book.update(post_book_params)
+    redirect_to post_books_path
+  end
+
   def create
     @post_book = PostBook.new(post_book_params)
     @post_book.user_id = current_user.id

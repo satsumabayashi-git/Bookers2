@@ -1,7 +1,8 @@
 <h1>User Info</h1>
 <%= image_tag current_user.get_profile_image(100,100) %>
-<%= current_user.id %>
-<h3><%= current_user.name %></h3>
+<p><%= current_user.id %></p>
+<p>Name <%= current_user.name %></p>
+<p>Introduction <%= current_user.introduction %></p>
 
 <h1><%= link_to 'Edit', edit_user_path(current_user.id) %></h1>
 
@@ -11,14 +12,27 @@
   <%= f.text_field :title %>
   <h4>Opinion</h4>
   <%= f.text_field :opinion %>
+  <br>
   <%= f.submit 'Create Book' %>
 <% end %>
 
 <h1>Books</h1>
-<% @post_books.each do |post_book| %>
-  <div>
-    <p><%= image_tag 'gazou-mu.jpg' %></p>
-    <p><%= link_to "Title:#{post_book.title}", post_book_path(post_book.id) %></p>
-    <p><%= "Opinion:#{post_book.opinion}" %></p>
-  </div>
-<% end %>
+<hr>
+<table rules="groups">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_books.each do |post_book| %>
+      <tr>
+        <td><%= image_tag post_book.user.get_profile_image(80,80) %></td>
+        <td><%= link_to "#{post_book.title}", post_book_path(post_book.id) %></td>
+        <td><%= "#{post_book.opinion}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
