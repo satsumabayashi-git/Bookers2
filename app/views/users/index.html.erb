@@ -1,20 +1,4 @@
-<h1>User Info</h1>
-<%= image_tag current_user.get_profile_image(100,100) %>
-<p><%= current_user.id %></p>
-<p>Name <%= current_user.name %></p>
-<p>Introduction <%= current_user.introduction %></p>
-
-<h1><%= link_to 'Edit', edit_user_path(current_user.id) %></h1>
-
-<h1>New Book</h1>
-<%= form_with model: @post_book_new do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_field :opinion %>
-  <br>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<%= render 'post_books/leftside', user: current_user, post_book_new: @post_book_new %>
 
 <h1>Users</h1>
 <hr>
