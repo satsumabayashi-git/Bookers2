@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   def index
-    @post_book_new = PostBook.new
+    @book_new = Book.new
     @users = User.all
   end
   
   def show
-    @post_book_new = PostBook.new
+    @book_new = Book.new
     @user = User.find(params[:id])
-    @post_books = @user.post_books
+    @books = @user.books
   end
 
   def edit
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    redirect_to post_books_path
+    redirect_to books_path
   end
 
   private
@@ -27,4 +27,3 @@ class UsersController < ApplicationController
   end
 
 end
-

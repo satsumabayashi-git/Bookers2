@@ -1,6 +1,6 @@
 <h1>Editing Book</h1>
 
-<%= form_with model: @post_book do |f| %>
+<%= form_with model: @book do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>Opinion</h4>
@@ -9,4 +9,4 @@
   <%= f.submit 'Update Book' %>
 <% end %>
 
-<p><%= link_to "Show", post_book_path(@post_book.id) %>|<%= link_to "Back", post_books_path %></p>
+<p><%= link_to "Show", book_path(@book.id) %>|<%= link_to "Back", books_path %></p>
